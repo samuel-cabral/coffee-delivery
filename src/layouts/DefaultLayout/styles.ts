@@ -7,7 +7,7 @@ export const DefaultLayoutContainer = styled.div`
 
   .container {
     width: 100%;
-    max-width: 70rem;
+    max-width: 72.5rem;
     margin-left: auto;
     margin-right: auto;
   }
