@@ -10,7 +10,7 @@ export const Hero = styled.section`
     top: 0;
     left: 0;
     max-height: 34rem;
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
     filter: blur(80px);
   }
