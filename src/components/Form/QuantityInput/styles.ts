@@ -1,43 +1,31 @@
 import styled from 'styled-components'
 
-export const QuantityInputContainer = styled.div`
-  height: 2.375rem;
-  padding: 0.5rem;
+export const Container = styled.div`
+  padding: 8px;
+  background-color: ${({ theme }) => theme.colors['base-button']};
+  border-radius: 6px;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
+  gap: 4px;
 
-  border-radius: 0.375rem;
-  background: ${({ theme }) => theme.colors['base-button']};
-
-  > button,
-  > span {
-    width: 1rem;
-    height: 1rem;
-
+  button {
+    background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    border-radius: 2rem;
   }
 
-  > button {
-    border: 0;
-    border-radius: 0.5rem;
+  button svg {
+    color: ${({ theme }) => theme.colors.purple};
 
-    background: transparent;
-    color: var(--blue);
-
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    transition: filter 0.2s;
+    transition: all 0.2s;
 
     &:hover {
-      filter: brightness(0.9);
+      color: ${({ theme }) => theme.colors['purple-dark']};
     }
+  }
+
+  span {
+    padding-top: 2px;
+    color: ${({ theme }) => theme.colors['base-title']};
   }
 `
