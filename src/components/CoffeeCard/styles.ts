@@ -1,110 +1,99 @@
 import styled from 'styled-components'
+
 import { mixins } from '../../styles/mixins'
 
-export const CardContainer = styled.div`
-  width: 16rem;
-  height: 19.375rem;
-  padding: 0 1.25rem 1.5rem;
+export const Container = styled.div`
+  background-color: ${({ theme }) => theme.colors['base-card']};
+  padding: 0 20px 20px;
+  border-radius: 6px 36px;
+  width: 256px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-  gap: 1rem;
   text-align: center;
-
-  border-radius: 0.375rem 2.25rem;
-  background: ${({ theme }) => theme.colors['base-card']};
 `
 
-export const CardCoffeeImage = styled.img`
-  width: 7.5rem;
-  height: 7.5rem;
-  margin-top: -1.25rem;
+export const CoffeeImg = styled.img`
+  margin-top: -20px;
+  max-width: 120px;
+  max-height: 120px;
   align-self: center;
 `
 
-export const CardTags = styled.div`
+export const Tags = styled.div`
+  margin-top: 12px;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  align-self: center;
+  gap: 4px;
 
-  > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem 0.5rem;
-
-    border-radius: 6.25rem;
-    background: ${({ theme }) => theme.colors['yellow-light']};
+  span {
+    padding: 4px 8px;
+    border-radius: 100px;
+    background-color: ${({ theme }) => theme.colors['yellow-light']};
     color: ${({ theme }) => theme.colors['yellow-dark']};
-
     text-transform: uppercase;
-    ${mixins.fonts.textXS}
+    ${mixins.fonts.tag}
   }
 `
 
-export const CardTitle = styled.h3`
-  margin-top: 0.25rem;
-  text-align: center;
+export const Title = styled.h3`
+  margin-top: 16px;
+
+  color: ${({ theme }) => theme.colors['base-subtitle']};
   ${mixins.fonts.titleS}
 `
 
-export const CardDescription = styled.p`
+export const Description = styled.span`
+  margin-top: 8px;
+  width: 100%;
+
   color: ${({ theme }) => theme.colors['base-label']};
-  text-align: center;
   ${mixins.fonts.textS}
 `
 
-export const CardBuy = styled.div`
-  width: 100%;
-
+export const Control = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  margin-top: 32px;
 `
 
-export const CardPrice = styled.div`
+export const Price = styled.div`
   display: flex;
-  align-items: first baseline;
-  justify-content: first baseline;
+  align-items: baseline;
   gap: 2px;
 
   span:first-child {
+    ${mixins.fonts.textS};
     color: ${({ theme }) => theme.colors['base-text']};
-    ${mixins.fonts.textS}
   }
 
   span:last-child {
-    color: ${({ theme }) => theme.colors['base-title']};
-    ${mixins.fonts.titleM}
+    ${mixins.fonts.titleM};
+    color: ${({ theme }) => theme.colors['base-text']};
   }
 `
 
-export const CardActions = styled.div`
-  margin-left: auto;
-
+export const Order = styled.div<{ $itemAdded?: boolean }>`
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 8px;
 
   > button {
-    width: 2.5rem;
-    height: 2.5rem;
-
+    background-color: ${({ theme, $itemAdded }) =>
+      $itemAdded ? theme.colors['yellow-dark'] : theme.colors['purple-dark']};
+    transition: background-color 0.2s;
+    border-radius: 6px;
+    padding: 8px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 0.5rem;
-    background: ${({ theme }) => theme.colors['purple-dark']};
-
-    transition: filter 0.2s;
 
     &:hover {
-      filter: brightness(0.9);
+      background-color: ${({ theme, $itemAdded }) =>
+        $itemAdded ? theme.colors.yellow : theme.colors.purple};
     }
   }
 `
